@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 function Hero() {
-  const titles = ["Software Engineer", "Cloud Enthusiast", "Problem Solver"];
+  const titles = ["Software  Engineer", "Cloud Enthusiast", "Problem Solver"];
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -50,7 +50,7 @@ function Hero() {
           </a>
         </div>
         <div className="hero-image">
-          <img src="./mosaad.jpeg" alt="Mosaad Ahmed" />
+          <img src="../mosaad.jpeg" alt="Mosaad Ahmed" />
         </div>
       </div>
     </section>
