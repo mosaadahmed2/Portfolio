@@ -1,0 +1,65 @@
+.about {
+    padding: 60px 20px;
+    background: #2c3e50;
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #ccc;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    border-left: 2px solid #ccc;
+    padding-left: 30px;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .timeline-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timeline-content h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .timeline-content .year {
+    font-size: 0.9rem;
+    color: #777;
+    display: block;
+    margin-top: 4px;
+  }
+  
+  .timeline-content p {
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
