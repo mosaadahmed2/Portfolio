@@ -49,6 +49,8 @@ function Hero() {
             See My Work
           </a>
         </div>
+       
+
         <div className="hero-image">
           <img src="/mosaad.jpeg" alt="Mosaad Ahmed" />
         </div>

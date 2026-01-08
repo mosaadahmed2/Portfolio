@@ -5,6 +5,10 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <h1 className="logo">Mosaad Ahmed</h1>
+      <div className="status-badge">
+  <span className="status-dot"></span>
+  Open to Full-Time Opportunities
+</div>
       <ul className="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
