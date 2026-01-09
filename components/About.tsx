@@ -7,24 +7,40 @@ export default function About() {
     {
       year: "2024 - Present",
       title: "Graduate Student (M.E. in Computer Science)",
-      desc: "Currently pursuing my Master's, focusing on AI, Data Science, Big Data, and Cloud Technologies.",
+      points: [
+        "Pursuing a Master's degree with a focus on AI, Data Science, Big Data, and Cloud Technologies."
+      ],
     },
     {
       year: "2022 - 2024",
       title: "Associate Software Engineer",
-      desc: "Developed and optimized ETL pipelines using Informatica, Python, and Airflow. Integrated data from Salesforce and NetSuite into Snowflake/BigQuery.",
+      points: [
+        "Built scalable ETL pipelines ingesting Salesforce and NetSuite data into Snowflake and BigQuery, enabling near real-time analytics for 50K+ records daily and reducing processing time by 90%.",
+        "Automated Salesforce data integrations using Python (Pandas, NumPy), saving 10+ engineering hours per week and ensuring error-free ingestion.",
+        "Migrated 5TB+ of enterprise data from Oracle to AWS (S3, Lambda, Redshift) using Informatica and DBT.",
+        "Designed and deployed Apache Airflow pipelines on Docker and Kubernetes, reducing processing time by 40%.",
+        "Led CI/CD automation using Jenkins and Git across Dev, UAT, and Production environments.",
+        "Developed a real-time Employee Achievement Recognition platform using React and Socket.IO, enabling employees to share achievements, receive live updates, and engage through likes and reactions."
+      ],
     },
     {
       year: "2021 - 2022",
       title: "Software Intern",
-      desc: "Worked on designing scalable ETL solutions and supporting deployments across multiple environments using Jenkins and Git.",
+      points: [
+        "Built and orchestrated Apache Airflow ETL pipelines to extract Salesforce financial and sales data into Snowflake, improving data consistency and increasing pipeline reliability by 30%.",
+        "Designed interactive Superset dashboards to visualize financial and sales KPIs, cutting manual reporting effort by 50% and enabling near real-time business insights.",
+        "Collaborated cross-functionally to troubleshoot data workflows and implement monitoring and alerting, significantly improving pipeline uptime and operational stability."
+      ],
     },
     {
       year: "2018 - 2022",
       title: "Bachelor's in Computer Science",
-      desc: "Earned my B.Tech in Computer Science, building a strong foundation in programming, databases, and systems.",
+      points: [
+        "Completed B.Tech in Computer Science with a strong foundation in programming, databases, and systems."
+      ],
     },
   ];
+  
 
   return (
     <section className="about" id="about">
@@ -43,7 +59,11 @@ export default function About() {
             <div className="timeline-content">
               <h3>{item.title}</h3>
               <span className="year">{item.year}</span>
-              <p>{item.desc}</p>
+              <ul className="timeline-points">
+    {item.points.map((point, i) => (
+      <li key={i}>{point}</li>
+    ))}
+  </ul>
             </div>
           </motion.div>
         ))}

@@ -358,14 +358,17 @@ section:nth-child(4) {
 .f-icon {
   font-size: 3rem;
   font-weight: 800;
-  opacity: 0.08;
+  opacity: 0.18;                 /* ⬆️ increased from 0.08 */
   pointer-events: none;
 
   animation-name: floatFree;
   animation-duration: 14s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.08); /* subtle glow */
 }
+
 
 /* ICON COLORS (REQUIRED) */
 .cpp    { color: #00599c; }
@@ -583,6 +586,85 @@ section:nth-child(4) {
   .leetcode-difficulty {
     width: 100%;
     justify-content: space-between;
+  }
+}
+
+
+
+/* =========================
+   RESUME SECTION
+========================= */
+
+.resume-section {
+  background: #2c3e50;
+  padding: 100px 20px;
+}
+
+
+.resume-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.resume-container h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ecf0f1; 
+  margin-bottom: 12px;
+}
+
+.resume-container p {
+  font-size: 1.05rem;
+  color: #bdc3c7; 
+  margin-bottom: 32px;
+}
+
+/* Buttons */
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.resume-btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* Primary */
+.resume-btn.primary {
+  background: #3498db;   /* soft blue */
+  color: #ffffff;
+}
+
+.resume-btn.primary:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+
+/* Secondary */
+.resume-btn.secondary {
+  background: transparent;
+  color: #ecf0f1;
+  border: 1px solid rgba(236, 240, 241, 0.4);
+}
+
+.resume-btn.secondary:hover {
+  background: rgba(236, 240, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+
+/* Mobile */
+@media (max-width: 640px) {
+  .resume-actions {
+    flex-direction: column;
   }
 }
 
