@@ -1,5 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
+import "./About.css";
+
+const timelineSkills: Record<number, string[]> = {
+  1: [
+    "Python", "Pandas", "NumPy", "Snowflake", "BigQuery",
+    "Salesforce", "AWS S3", "Lambda", "Redshift", "Informatica",
+    "DBT", "Airflow", "Docker", "Kubernetes", "Jenkins",
+    "Git", "React", "Socket.IO", "ETL", "CI/CD",
+  ],
+  2: [
+    "Apache Airflow", "Snowflake", "ETL Pipelines",
+    "Salesforce", "Apache Superset", "SQL",
+    "Pipeline Monitoring", "Data Visualization",
+  ],
+};
 
 export default function About() {
   const timeline = [
@@ -82,6 +97,21 @@ export default function About() {
                   </motion.li>
                 ))}
               </ul>
+
+              {/* Skills chips — only for experience entries */}
+              {timelineSkills[idx] && (
+                <motion.div
+                  className="timeline-skills"
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.15 + 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  {timelineSkills[idx].map((skill) => (
+                    <span key={skill} className="skill-chip">{skill}</span>
+                  ))}
+                </motion.div>
+              )}
             </div>
           </motion.div>
         ))}

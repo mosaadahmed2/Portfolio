@@ -188,19 +188,19 @@ section:nth-child(4) { animation-delay: 0.9s; }
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
 /* =====================
    ABOUT SECTION
 ===================== */
 .about {
   position: relative;
   padding: 100px 20px 120px;
-  background: transparent;  /* ← was linear-gradient(...) */
-  /* remove background-attachment: fixed too */
+  background: transparent;
   overflow: hidden;
   font-family: "DM Sans", sans-serif;
 }
 
-/* Subtle noise/dot texture overlay */
 .about::before {
   content: '';
   position: absolute;
@@ -211,7 +211,6 @@ section:nth-child(4) { animation-delay: 0.9s; }
   z-index: 0;
 }
 
-/* Soft ambient blobs */
 .about::after {
   content: '';
   position: absolute;
@@ -278,7 +277,6 @@ section:nth-child(4) { animation-delay: 0.9s; }
   z-index: 1;
 }
 
-/* Vertical line */
 .timeline::before {
   content: '';
   position: absolute;
@@ -352,7 +350,6 @@ section:nth-child(4) { animation-delay: 0.9s; }
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* Top shimmer line */
 .timeline-content::before {
   content: '';
   position: absolute;
@@ -369,9 +366,6 @@ section:nth-child(4) { animation-delay: 0.9s; }
     0 0 0 1px rgba(255,255,255,0.14) inset;
 }
 
-/* =====================
-   CARD HEADER
-===================== */
 .timeline-content h3 {
   font-family: "Syne", sans-serif;
   font-size: 1.05rem;
@@ -428,6 +422,39 @@ section:nth-child(4) { animation-delay: 0.9s; }
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.45);
   flex-shrink: 0;
+}
+
+/* =====================
+   SKILL CHIPS
+===================== */
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.skill-chip {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 3px 10px;
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.skill-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
 }
 
 /* =====================
