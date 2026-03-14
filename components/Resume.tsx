@@ -4,6 +4,7 @@ import "../style.css";
 export default function Resume() {
   return (
     <section className="resume-section" id="resume">
+      <div className="particles"></div>
       <div className="resume-container">
         <h2>Resume</h2>
         <p>

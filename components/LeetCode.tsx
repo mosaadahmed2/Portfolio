@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "../style.css";
+
 
 export default function LeetCode() {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    fetch("https://leetcode-stats-api.herokuapp.com/0JMfwclDko")
+    fetch("https://leetcode-api-faisalshohag.vercel.app/0JMfwclDko")
       .then(res => res.json())
       .then(data => setStats(data));
   }, []);
@@ -14,6 +14,7 @@ export default function LeetCode() {
 
   return (
     <section className="leetcode-section" id="leetcode">
+      <div className="particles"></div>
 
       {/* ===== FLOATING ICONS (AROUND CARD) ===== */}
 

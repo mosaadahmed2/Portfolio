@@ -4,6 +4,7 @@ import React from 'react';
 export default function Navbar() {
   return (
     <nav className="navbar">
+      <div className="particles"></div>
       <h1 className="logo">Mosaad Ahmed</h1>
       <div className="status-badge">
   <span className="status-dot"></span>

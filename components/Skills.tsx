@@ -12,6 +12,7 @@ const skills = [
 export default function Skills() {
   return (
     <section className="skills" id="skills">
+      <div className="particles"></div>
       <h2>Skills</h2>
       <div className="skills-grid">
         {skills.map((skill) => (
