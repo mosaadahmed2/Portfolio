@@ -27,57 +27,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Remove any default section animation — handled by JS now */
-section {
-  opacity: 1 !important;
-  transform: none !important;
-  animation: none !important;
-}
- 
-
 /* =====================
-   SECTION FADE-IN
+   SECTION BASE
 ===================== */
 section {
   padding: 70px 20px;
   text-align: center;
   background: transparent;
-  opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-  will-change: opacity, transform;
-}
-
-section.section-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Hero always visible */
-.hero {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
-
-/* Named sections explicitly targeted */
-.about,
-.projects-section,
-.leetcode-section,
-.resume-section,
-.contact {
-  opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-}
-
-.about.section-visible,
-.projects-section.section-visible,
-.leetcode-section.section-visible,
-.resume-section.section-visible,
-.contact.section-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
 }
 
 /* =====================
@@ -370,6 +326,35 @@ section.section-visible {
 @keyframes move {
   from { background-position: 0 0; }
   to   { background-position: 100px 100px; }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 32px;
+    padding: 40px 0 20px;
+    width: 92%;
+  }
+
+  .hero-text h1 { font-size: 2rem; }
+  .hero-text h2 { font-size: 1.2rem; }
+
+  .hero-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 260px;
+    width: 70vw;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.15);
+  }
+
+  .hero .btn {
+    display: inline-block;
+  }
 }
 
 /* =====================
@@ -896,7 +881,61 @@ section.section-visible {
 .difficulty-box.hard   { background: rgba(220,38,38,0.2);   border-color: rgba(252,165,165,0.35); }
 .difficulty-box.hard strong { color: #fca5a5; }
 
-@media (max-width: 768px) { .leetcode-difficulty { width: 100%; justify-content: space-between; } }
+@media (max-width: 768px) {
+  .leetcode-section {
+    padding: 60px 16px;
+  }
+
+  /* Hide floating icons on mobile — they overflow */
+  .lc-icons {
+    display: none;
+  }
+
+  .leetcode-card {
+    padding: 24px 20px;
+  }
+
+  .leetcode-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .leetcode-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .leetcode-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .total-number {
+    font-size: 2.8rem;
+  }
+
+  .leetcode-difficulty {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .difficulty-item {
+    flex: 1;
+  }
+
+  .difficulty-box {
+    min-width: 0;
+    width: 100%;
+    height: 60px;
+  }
+
+  .difficulty-box strong {
+    font-size: 1.4rem;
+  }
+}
 
 /* =====================
    RESUME SECTION

@@ -1,26 +1,26 @@
 import { useEffect } from "react";
 
-/**
- * Fades in every direct child of the app wrapper when it enters the viewport.
- * Works by targeting the wrapper div children directly — avoids conflicts
- * with Framer Motion or any section-level inline styles.
- */
 export function useSectionFadeIn() {
   useEffect(() => {
-    // Target the actual component wrapper divs (Hero, About, Projects, etc.)
-    // We wrap each in a div with data-fade in App.tsx
-    const fadeEls = document.querySelectorAll("[data-fade]");
+    const fadeEls = Array.from(document.querySelectorAll<HTMLElement>("[data-fade]"));
 
-    const show = (el: Element) => {
-      (el as HTMLElement).style.opacity = "1";
-      (el as HTMLElement).style.transform = "translateY(0)";
+    // Set initial hidden state via JS (not CSS, to avoid conflicts)
+    fadeEls.forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(48px)";
+      el.style.transition = "opacity 0.75s ease, transform 0.75s ease";
+    });
+
+    const show = (el: HTMLElement) => {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
     };
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            show(entry.target);
+            show(entry.target as HTMLElement);
             observer.unobserve(entry.target);
           }
         });
@@ -28,16 +28,22 @@ export function useSectionFadeIn() {
       { threshold: 0.05, rootMargin: "0px 0px -30px 0px" }
     );
 
-    fadeEls.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      // Already visible on load — show immediately
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        show(el);
-      } else {
-        observer.observe(el);
-      }
-    });
+    // Small delay so layout is fully painted before we check rects
+    const timer = setTimeout(() => {
+      fadeEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Already visible — show with slight delay for entrance feel
+          setTimeout(() => show(el), 100);
+        } else {
+          observer.observe(el);
+        }
+      });
+    }, 50);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 }
